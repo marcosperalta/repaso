@@ -1,0 +1,10 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/marcos/Documents/c/lab0/tictactoe'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _print_board, symObjAddr: 0x0, symBinAddr: 0x100000990, symSize: 0xC0 }
+  - { offsetInCU: 0x4D, offset: 0x4D, size: 0x8, addend: 0x0, symName: _print_board, symObjAddr: 0x0, symBinAddr: 0x100000990, symSize: 0xC0 }
+  - { offsetInCU: 0xB7, offset: 0xB7, size: 0x8, addend: 0x0, symName: _get_winner, symObjAddr: 0xC0, symBinAddr: 0x100000A50, symSize: 0x1C0 }
+  - { offsetInCU: 0x14F, offset: 0x14F, size: 0x8, addend: 0x0, symName: _has_free_cell, symObjAddr: 0x280, symBinAddr: 0x100000C10, symSize: 0x90 }
+  - { offsetInCU: 0x1AF, offset: 0x1AF, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x310, symBinAddr: 0x100000CA0, symSize: 0x1E6 }
+...

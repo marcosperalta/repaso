@@ -1,0 +1,118 @@
+/* First, the standard lib includes, alphabetically ordered */
+#include <assert.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Maximum allowed length of the array */
+#define MAX_SIZE 100000
+
+void print_help(char *program_name) {
+    /* Print the usage help of this program. */
+    printf("Usage: %s <input file path>\n\n"
+           "Loads an array given in a file in disk and prints it on the screen."
+           "\n\n"
+           "The input file must have the following format:\n"
+           " * The first line must contain only a positive integer,"
+           " which is the length of the array.\n"
+           " * The second line must contain the members of the array"
+           " separated by one or more spaces. Each member must be an integer."
+           "\n\n"
+           "In other words, the file format is:\n"
+           "<amount of array elements>\n"
+           "<array elem 1> <array elem 2> ... <array elem N>\n\n",
+           program_name);
+}
+
+char *parse_filepath(int argc, char *argv[]) {
+    /* Parse the filepath given by command line argument. */
+    char *result = NULL;
+    // Program takes exactly two arguments
+    // (the program's name itself and the input-filepath)
+    bool valid_args_count = (argc == 2);
+
+    if (!valid_args_count) {
+        print_help(argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    result = argv[1];
+
+    return result;
+}
+
+bool isFileNull(FILE *p) {
+    return (p == NULL);
+}
+
+unsigned int array_from_file(int array[],
+                    unsigned int max_size,
+                    const char *filepath) {
+    
+    FILE *fp; // defino un puntero a la estructura FILE
+    // fopen retorna un puntero del area de buffer. Abre un archivo de solo lectura
+    if (isFileNull(fp = fopen(filepath, "r"))) {
+        printf("\nNo se pudo abrir el archivo\n");
+    } else {
+        int i = 0;
+        while (fscanf(fp, "%d", &array[i]) != EOF) {
+            i++;
+            printf("llegue");
+        }
+        
+    }
+    fclose(fp);
+    
+    max_size = array[0]; // Guardo en la primera posición del array el size del mismo
+    return max_size;
+}
+
+void array_dump(int a[], unsigned int length) {    
+    printf("\n[ ");
+    for (int i = 0; i < length; i++) {
+        printf("%d ", a[i+1]);
+    }
+    printf("]\n");
+}
+
+void array_user_input(int a[], unsigned int length) {
+
+    char filepath[] = "/dev/fd/0";
+
+    printf("Inglese el largo del arreglo: ");
+    scanf("%u", &length);
+    printf("El largo del arreglo es: %u\n", length);
+    int array[length];
+    int largo = array_from_file(array, length, filepath);
+    printf("Inglese el largo del arreglo: %d", largo);
+    for (int i = 0; i < largo; i++)
+    {
+         printf("El valor es: %d ", a[i]);
+    }
+    
+}
+
+void array_from_stdin() {
+
+}
+
+int main(int argc, char *argv[]) {
+    char *filepath = NULL;
+
+    /* parse the filepath given in command line arguments */
+    filepath = parse_filepath(argc, argv);
+    
+    /* create an array of MAX_SIZE elements */
+    int array[MAX_SIZE];
+    
+    /* parse the file to fill the array and obtain the actual length */
+    unsigned int length = array_from_file(array, MAX_SIZE, filepath);
+    
+    /* dumping the array */
+    array_dump(array, length);
+
+    /* load array from user */
+    array_user_input(array, length);
+    array_dump(array, length);
+    return EXIT_SUCCESS;
+}
