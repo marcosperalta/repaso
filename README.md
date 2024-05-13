@@ -1,1 +1,0 @@
-Repaso de Programación C
