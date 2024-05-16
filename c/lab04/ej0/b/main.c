@@ -3,9 +3,8 @@
 
 #include "data.h"
 
-void
-print_data(data_t d) {
-    printf("NOMBRE: %s\n"
+void print_data(data_t d) {
+    printf("\n\nNOMBRE: %s\n"
            "EDAD  : %d años\n"
            "ALTURA: %d cm\n\n",
            d.name, d.age, d.height);
@@ -13,6 +12,11 @@ print_data(data_t d) {
 
 void set_name(name_t new_name, data_t *d) {
     /* COMPLETAR */
+    name_t *ptr = &d->name;
+    printf("\nd->name: %s\n", d->name);
+    printf("\n*ptr: %s\n", *ptr);
+    (void)new_name;
+    
 }
 
 int main(void) {
@@ -21,6 +25,7 @@ int main(void) {
     print_data(messi);
     name_t messi_full_name = "Lionel Messi";
     /* COMPLETAR */
+    set_name(messi_full_name, &messi);
     print_data(messi);
 
     return EXIT_SUCCESS;
