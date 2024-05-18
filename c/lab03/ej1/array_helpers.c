@@ -48,9 +48,9 @@ void array_from_file(WeatherTable array, const char *filepath) {
         exit(EXIT_FAILURE);
     }
 
-    unsigned int k_year = 0u;
-    unsigned int k_month = 0u;
-    unsigned int k_day = 0u;
+    uint k_year = 0u;
+    uint k_month = 0u;
+    uint k_day = 0u;
    
    while (!feof(file)) {
         int res = fscanf(file, " %u %u %u ", &k_year, &k_month, &k_day);
@@ -60,7 +60,7 @@ void array_from_file(WeatherTable array, const char *filepath) {
         }
         Weather weather = weather_from_file(file);
         /* Completar acá: Guardar la medición de clima en el arreglo multidimensional */
-
+        
     }
     fclose(file);
 }
