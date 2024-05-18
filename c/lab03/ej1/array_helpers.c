@@ -9,6 +9,7 @@
 
 #include "array_helpers.h"
 
+typedef unsigned int uint;
 
 /**
  * @brief returns true when reach last line in weather file
@@ -21,7 +22,6 @@ static bool is_last_line(unsigned int year, unsigned int month, unsigned int day
 {
     return  year == YEARS - 1u && month == december && day == DAYS - 1u;
 }
-
 
 void array_dump(WeatherTable a) {
     for (unsigned int year = 0u; year < YEARS; ++year) {
@@ -38,10 +38,10 @@ void array_dump(WeatherTable a) {
     }
 }
 
-
+// year month day <avg_temp> <max_temp> <min_temp> <pressure> <moisture> <rainfall>
+// 1980 1     1    211        290        130        10130      54         0
 void array_from_file(WeatherTable array, const char *filepath) {
     FILE *file = NULL;
-
     file = fopen(filepath, "r");
     if (file == NULL) {
         fprintf(stderr, "File does not exist.\n");
@@ -51,7 +51,8 @@ void array_from_file(WeatherTable array, const char *filepath) {
     unsigned int k_year = 0u;
     unsigned int k_month = 0u;
     unsigned int k_day = 0u;
-    while (!feof(file)) {
+   
+   while (!feof(file)) {
         int res = fscanf(file, " %u %u %u ", &k_year, &k_month, &k_day);
         if (res != 3) {
             fprintf(stderr, "Invalid array.\n");
@@ -59,6 +60,7 @@ void array_from_file(WeatherTable array, const char *filepath) {
         }
         Weather weather = weather_from_file(file);
         /* Completar acá: Guardar la medición de clima en el arreglo multidimensional */
+
     }
     fclose(file);
 }
