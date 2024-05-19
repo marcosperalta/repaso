@@ -30,7 +30,7 @@ void array_dump(WeatherTable a) {
                 fprintf(stdout, "%u %u %u ", year + FST_YEAR, month + 1, day + 1);
                 weather_to_file(stdout, a[year][month][day]);
                 if (!is_last_line(year, month, day))
-                {
+                {   
                     fprintf(stdout, "\n");
                 }
             }
@@ -38,8 +38,6 @@ void array_dump(WeatherTable a) {
     }
 }
 
-// year month day <avg_temp> <max_temp> <min_temp> <pressure> <moisture> <rainfall>
-// 1980 1     1    211        290        130        10130      54         0
 void array_from_file(WeatherTable array, const char *filepath) {
     FILE *file = NULL;
     file = fopen(filepath, "r");
@@ -59,8 +57,11 @@ void array_from_file(WeatherTable array, const char *filepath) {
             exit(EXIT_FAILURE);
         }
         Weather weather = weather_from_file(file);
-        /* Completar acá: Guardar la medición de clima en el arreglo multidimensional */
-        
+        if (k_year > LST_YEAR || k_month > MONTHS || k_day > DAYS) {
+            fprintf(stderr, "Error: Invalid array indices (%u, %u, %u).\n", k_year, k_month, k_day);
+            exit(EXIT_FAILURE);
+        }
+        array[k_year-FST_YEAR][k_month-1][k_day-1] = weather;
     }
     fclose(file);
 }
