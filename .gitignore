@@ -1,4 +1,5 @@
-c/.vscode
-.DS_Store
-c/.DS_Store
-c/.vscode/settings.json
+**/*.o
+**/.vscode
+**/.DS_Store
+**/*.json
+**/*.out
