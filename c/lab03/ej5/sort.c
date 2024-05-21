@@ -28,3 +28,8 @@ void sort(player_t a[], unsigned int length) {
     // completar aquí
 }
 
+void swap(player_t a[], unsigned int i, unsigned int j) {
+    player_t aux = a[i];
+    a[i] = a[j];
+    a[j] = a[i];
+}

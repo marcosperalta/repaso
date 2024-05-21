@@ -7,6 +7,8 @@
 #include "sort_helpers.h"
 #include "sort.h"
 
+///////////////////////////////SELECTION SORT////////////////////////////////////////////
+
 static unsigned int min_pos_from(int a[], unsigned int i, unsigned int length) {
     unsigned int min_pos = i;
     for (unsigned int j = i + 1; j < length; ++j) {
@@ -24,6 +26,7 @@ void selection_sort(int a[], unsigned int length) {
     }
 }
 
+///////////////////////////////INSERTION SORT////////////////////////////////////////////
 
 static void insert(int a[], unsigned int i) {
     unsigned int j = i;
@@ -39,6 +42,7 @@ void insertion_sort(int a[], unsigned int length) {
     }
 }
 
+//////////////////////////////////QUICK SORT/////////////////////////////////////////////
 
 static unsigned int partition(int a[], unsigned int izq, unsigned int der) {
     unsigned int i = izq+1;
