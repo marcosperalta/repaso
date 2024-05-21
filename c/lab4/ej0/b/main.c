@@ -3,11 +3,19 @@
 
 #include "data.h"
 
+/*
+typedef struct _s_data {
+    name_t name;
+    unsigned int age;
+    unsigned int height;
+} data_t;
+*/
+
 void print_data(data_t d) {
     printf("\n\nNOMBRE: %s\n"
-           "EDAD  : %d años\n"
-           "ALTURA: %d cm\n\n",
-           d.name, d.age, d.height);
+               "EDAD  : %d años\n"
+               "ALTURA: %d cm\n\n",
+                        d.name, d.age, d.height);
 }
 
 void set_name(name_t new_name, data_t *d) {
