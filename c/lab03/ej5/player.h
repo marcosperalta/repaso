@@ -17,4 +17,9 @@ typedef struct _player_t {
     unsigned int tournaments;
 } * player_t; // NOTE! player_t is an alias of struct _player_t *
 
+// cpu time con punteros 0.02 seconds y sin punteros 0.07 seconds, es decir 3,5x veces.
+// ¿Funciona más rápido la versión con punteros? ¿Por qué son más eficientes los intercambios con esta versión?
+// Si, claramente. Los swaps son más eficientes ya que solo intercambian direcciones de memoria y
+// no copian el contenido de la estructura o la estructura en sí.
+
 #endif //_PLAYER_H

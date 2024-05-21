@@ -39,5 +39,7 @@ bool array_is_sorted(player_t atp[], unsigned int length);
  */
 void sort(player_t a[], unsigned int length);
 
+void quick_sort(player_t a[], unsigned int length);
+
 
 #endif
