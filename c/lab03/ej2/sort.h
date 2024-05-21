@@ -40,4 +40,16 @@ bool array_is_sorted(player_t atp[], unsigned int length);
 void sort(player_t a[], unsigned int length);
 
 
+/**
+ * @brief Exchanges players of array 'a' in the given positions 'i' and 'j'.
+ *        Array remains the same if the two positions are the same.
+ */
+void swap(player_t a[], unsigned int i, unsigned int j);
+
+/**
+ * @brief Sorting algorithm quick sort
+ * 
+*/
+void quick_sort(player_t a[], unsigned int length);
+
 #endif

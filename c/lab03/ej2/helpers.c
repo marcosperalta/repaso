@@ -99,7 +99,7 @@ void atp_dump(player_t atp[], unsigned int length) {
     for (unsigned int i = 0u; i < length; i++) {
         fprintf(stdout,"%s ", atp[i].name);
         fprintf(stdout,"%s ", atp[i].country);
-        fprintf(stdout,"%u %u %u %u\n", atp[i].rank, atp[i].age, atp[i].points, atp[i].tournaments);
+        fprintf(stdout,"%u %u %u %u\n", atp[i].rank, atp[i].age, atp[i].score, atp[i].tournaments);
     }
 }
 
@@ -118,7 +118,7 @@ static unsigned int process_FILE(FILE *file, player_t atp[]) {
         process_string(file, SEPARATOR, atp[i].country, MAX_COUNTRY_LENGTH + 1u);
         atp[i].rank = process_unsigned(file);
         atp[i].age = process_unsigned(file);
-        atp[i].points = process_unsigned(file);
+        atp[i].score = process_unsigned(file);
         atp[i].tournaments = process_unsigned(file);
         ++i;
     }
@@ -130,7 +130,7 @@ unsigned int process_file(const char *filepath, player_t atp[]) {
     FILE *file = NULL;
     file = fopen(filepath, "r");
     if (file == NULL) {
-        fprintf(stderr, "File does not exist.\n");
+        fprintf(stderr, "File does not exist!\n");
         exit(EXIT_FAILURE);
     }
     size = process_FILE(file, atp);

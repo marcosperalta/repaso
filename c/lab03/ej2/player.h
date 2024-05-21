@@ -13,7 +13,7 @@ typedef struct _player_t {
     char country[MAX_COUNTRY_LENGTH + 1u]; //adding 1u to reserve space for \0 ending char
     unsigned int rank;
     unsigned int age;
-    unsigned int points;
+    unsigned int score;
     unsigned int tournaments;
 } player_t;
 
