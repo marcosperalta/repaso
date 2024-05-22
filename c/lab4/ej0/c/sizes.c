@@ -19,7 +19,7 @@ int main(void) {
     printf("name-size  : %lu bytes\n"
            "age-size   : %lu bytes\n"
            "height-size: %lu bytes\n"
-           "data_t-size: %lu bytes\n", /* Completar */);
+           "data_t-size: %lu bytes\n", sizeof(messi.name), sizeof(messi.age), sizeof(messi.height), sizeof(messi));
 
     return EXIT_SUCCESS;
 }

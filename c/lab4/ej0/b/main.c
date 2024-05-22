@@ -19,12 +19,9 @@ void print_data(data_t d) {
 }
 
 void set_name(name_t new_name, data_t *d) {
-    /* COMPLETAR */
-    name_t *ptr = &d->name;
-    printf("\nd->name: %s\n", d->name);
-    printf("\n*ptr: %s\n", *ptr);
-    (void)new_name;
-    
+    for (unsigned int i = 0; i < NAME_SIZE && new_name[i] != '\0'; i++) {
+        d->name[i] = new_name[i];
+    }
 }
 
 int main(void) {

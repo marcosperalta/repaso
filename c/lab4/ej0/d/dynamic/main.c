@@ -58,6 +58,7 @@ int main(int argc, char *argv[]) {
     // 
     // COMPLETAR: Liberar la memoria usada por <array>
     //
+    free(array); // 1 free por cada calloc/malloc/realloc
     
     return EXIT_SUCCESS;
 }
