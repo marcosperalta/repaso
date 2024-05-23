@@ -5,40 +5,44 @@
 
 struct _counter {
     unsigned int count;
+    bool b;
 };
 
 counter counter_init(void) {
-/*
-    Needs implementation.
-*/
+    counter c = NULL;
+    c = (counter)malloc(sizeof(struct _counter));
+    assert(c != NULL);
+    c->count = 0;
+    c->b = true;
+    return c;
 }
 
 void counter_inc(counter c) {
-/*
-    Needs implementation.
-*/
+    assert(c != NULL);
+    c->count++;
+    return c;
 }
 
 bool counter_is_init(counter c) {
-/*
-    Needs implementation.
-*/
+    return c->b;
 }
 
 void counter_dec(counter c) {
-/*
-    Needs implementation.
-*/
+    assert(c != NULL);
+    assert(!counter_is_init(c));
+    c->count--;
+    return c;
 }
 
 counter counter_copy(counter c) {
-/*
-    Needs implementation.
-*/
+    counter d = counter_init();
+    assert(d != NULL);
+    d->count = c->count;
+    return d;
 }
 
 void counter_destroy(counter c) {
-/*
-   Needs implementation.
-*/
+    assert(c != NULL);
+    free(c);
+    c = NULL;
 }
