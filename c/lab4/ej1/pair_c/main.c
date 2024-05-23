@@ -4,7 +4,7 @@
 
 static
 void show_pair(pair_t p) {
-    printf("(%d, %d)\n", p->fst, p->snd);
+    printf("(%d, %d)\n", pair_first(p),pair_second(p));
 }
 
 int main(void) {
@@ -21,23 +21,19 @@ int main(void) {
     printf("q = ");
     show_pair(q);
 
-    // quiero crear un par sin usar pair_new
-    r->fst = 40;
-    r->snd = 50;
+    // quiero crear un par sin usar pair_new (no se puede!)
+    // r->fst = 40;
+    // r->snd = 50;
+    // printf("r = ");
+    // show_pair(r);
+    r = pair_new(40, 50); // debo usar pair_new!
     printf("r = ");
     show_pair(r);
+
 
     // Se destruyen p y q
     p = pair_destroy(p);
     q = pair_destroy(q);
-    //r = pair_destroy(r);
+    r = pair_destroy(r);
     return EXIT_SUCCESS;
 }
-
-/**
- * 1. Acceso Restringido: cumple ya que las implementaciones están en el archvio pair.c
- * 2. Interfaz Clara: el archivo .h proporciona la interfaz adecuada.
- * 3. Modularidad: Cualquier cambio en pair.c no debería afectar a otros módulos. Cumple.
- * Aún así se pueden modificar el estado del pair_t sin usar funciones provistas en la
- * interfaz pública. Por ende no es totalmente encapsulado.
- * **/
