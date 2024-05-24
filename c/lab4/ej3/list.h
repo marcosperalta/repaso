@@ -3,10 +3,8 @@
 
 #include <stdbool.h>
 
-typedef struct _note_t * node;
-typedef node * list;
+typedef struct _node_t * list;
 typedef int list_elem;
- 
 
 // CONSTRUCTORS
 list empty(void);

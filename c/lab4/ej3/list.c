@@ -4,8 +4,9 @@
 
 #include "list.h"
 
-struct _node_t {
+typedef struct _node_t {
     list_elem elem;
     struct _node_t * next;
-};
+} node_t;
+
 
