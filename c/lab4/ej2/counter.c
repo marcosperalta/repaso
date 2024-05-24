@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -5,7 +6,7 @@
 
 struct _counter {
     unsigned int count;
-    bool b;
+    //bool b;
 };
 
 counter counter_init(void) {
@@ -13,25 +14,26 @@ counter counter_init(void) {
     c = (counter)malloc(sizeof(struct _counter));
     assert(c != NULL);
     c->count = 0;
-    c->b = true;
+    //c->b = true;
     return c;
 }
 
 void counter_inc(counter c) {
     assert(c != NULL);
     c->count++;
-    return c;
 }
 
 bool counter_is_init(counter c) {
-    return c->b;
+    if (c->count == 0) {
+        return true;
+    }
+    return false;
 }
 
 void counter_dec(counter c) {
     assert(c != NULL);
     assert(!counter_is_init(c));
     c->count--;
-    return c;
 }
 
 counter counter_copy(counter c) {
