@@ -3,7 +3,12 @@
 
 #include <stdbool.h>
 
-typedef struct _node_t * list;
+// es correcta tambien esta implementación,
+// solo que la otra agrega 1 nivel más de indirección
+// typedef struct _node_t * list;
+// typedef int list_elem;
+
+typedef struct _list_t * list;
 typedef int list_elem;
 
 // CONSTRUCTORS
@@ -32,7 +37,7 @@ unsigned int length(list l);
 list concat(list l1, list l2);
 /* concatena ambas listas en ese orden l1 ++ l2 */
 
-list_elem index(list l, unsigned int n);
+list_elem index_list(list l, unsigned int n);
 /* PRE: length(l) > 0 - retorna el n-ésimo elemento de la lista l */
 
 list take(list l, unsigned int n);

@@ -1,6 +1,7 @@
 /* First, the standard lib includes, alphabetically ordered */
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 /* Then, this project's includes, alphabetically ordered */
 #include "array_helpers.h"
@@ -33,22 +34,33 @@ char *parse_filepath(int argc, char *argv[]) {
 
 
 float average(list l) {
-/*
-    Needs implementation.
-*/
+    float result = 0.00;
+    unsigned int cardinal = length(l);
+    list laux = copy_list(l);
+    while (!is_empty(laux)) {
+        list_elem elem1 = head(laux);
+        result += elem1;
+        tail(laux);
+    }
+    destroy(laux);
+    result = result/cardinal;
+    return result;
 }
 
 list array_to_list(int array[], unsigned int length) {
     /* Initialize the list */
+    list l = empty();
     for (unsigned int i = 0u; i < length; ++i) {
         /* Add element to the list  */
+        addl(l, array[i]);
     }
     /* Return list */
+    return l;
 }
 
 int main(int argc, char *argv[]) {
     char *filepath = NULL;
-    FILE *file = NULL;
+    //FILE *file = NULL;
 
     /* parse the filepath given in command line arguments */
     filepath = parse_filepath(argc, argv);
