@@ -9,8 +9,8 @@ int main(void) {
     char *filtered=NULL;
 
     filtered = string_filter(some_str, '.');
-    printf("original: '%s' (%ld)\n"
-           "filtrada: '%s' (%ld)\n",
+    printf("original: '%s' (%lu)\n"
+           "filtrada: '%s' (%lu)\n",
            some_str, string_length(some_str),
            filtered, string_length(filtered));
 
