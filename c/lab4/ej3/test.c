@@ -8,7 +8,7 @@ void run_test(const char *test_name, bool (*test_func)(), int *score) {
         printf("Test %s passed\n", test_name);
         (*score)++;
     } else {
-        printf("Test %s failed\n", test_name);
+        printf("\nTest %s FAILED!\n", test_name);
     }
 }
 
@@ -87,24 +87,25 @@ bool test_index() {
     return result;
 }
 
+/* deja en l solo los n primeros elementos, eliminando el resto */
 bool test_take() {
     list l = empty();
-    l = addl(l, 10);
-    l = addl(l, 20);
-    l = addl(l, 30);
-    l = take(l, 2);
-    bool result = length(l) == 2 && head(l) == 30 && head(tail(l)) == 20;
+    l = addr(l, 10);
+    l = addr(l, 20);
+    l = addr(l, 30);
+    l = take(l, 2);    
+    bool result = length(l) == 2 && head(l) == 10 && head(tail(l)) == 20;
     destroy(l);
     return result;
 }
 
 bool test_drop() {
     list l = empty();
-    l = addl(l, 10);
-    l = addl(l, 20);
     l = addl(l, 30);
+    l = addl(l, 20);
+    l = addl(l, 10);
     l = drop(l, 2);
-    bool result = length(l) == 1 && head(l) == 10;
+    bool result = length(l) == 1 && head(l) == 30;
     destroy(l);
     return result;
 }

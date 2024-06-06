@@ -50,7 +50,7 @@ list copy_list(list l);
 /* copia todos los elementos de l1 en una nueva lista l2 retornándola */
 
 // DESTROY
-list destroy(list l);
+void destroy(list l);
 /* libera la memoria en caso de ser necesario */
 
 #endif // LIST_H
