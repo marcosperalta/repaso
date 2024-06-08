@@ -1,5 +1,5 @@
-**/*.o
-**/.vscode
-**/.DS_Store
-**/*.json
-**/*.out
+*.o
+.vscode
+.DS_Store
+*.json
+*.out
