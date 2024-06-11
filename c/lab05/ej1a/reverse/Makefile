@@ -1,7 +1,6 @@
 CC = gcc
-CFLAGS = -I$(HEADERS)
-#CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -g -I$(HEADERS)
-SOURCES = stack.c reverse.c array_helpers.c
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -g -I$(HEADERS)
+SOURCES = ../TADstack/stack.c reverse.c array_helpers.c
 HEADERS = includes
 OBJECTS = $(SOURCES:.c=.o)
 TARGET  = reverse
