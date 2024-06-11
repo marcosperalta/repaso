@@ -21,7 +21,7 @@ typedef int stack_elem;
 * @brief Creates an empty stack
 * @return An empty stack
 */
-stack stack_empty();
+stack stack_empty(void);
 
 /**
 * @brief Inserts an element at the top of the stack
